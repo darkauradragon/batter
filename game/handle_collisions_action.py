@@ -28,7 +28,7 @@ class HandleCollisionsAction(Action):
             #change direction of ball
             pass
         
-        ball_p = ball.getposition()
+        ball_p = ball.get_position()
         if ball_p[1] > constants.MAX_Y:
             #lose game start over
             pass
