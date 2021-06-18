@@ -15,11 +15,24 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        marquee = cast["marquee"][0] # there's only one
-        robot = cast["robot"][0] # there's only one
-        artifacts = cast["artifact"]
-        marquee.set_text("")
-        for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_position()):
-                description = artifact.get_description()
-                marquee.set_text(description) 
+        paddle = cast["paddle"][0] # there's only one
+        ball = cast["ball"][0] # there's only one
+        bricks = cast["brick"]
+       
+        for brick in bricks:
+            if ball.get_position().equals(brick.get_position()):
+                #remove brick
+                pass
+        
+        if ball.get_position().equals(paddle.get_position()):
+            #change direction of ball
+            pass
+        
+        ball_p = ball.getposition()
+        if ball_p[1] > constants.MAX_Y:
+            #lose game start over
+            pass
+        
+        if ball_p[0] <1 or ball_p>constants.MAX_X or ball_p[1]:
+            #rebound off wall
+            pass
